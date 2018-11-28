@@ -1,0 +1,11 @@
+{
+	"xsappname": "live5",
+	"scopes": [{
+		"name": "$XSAPPNAME.USER",
+		"description": "live5 User Scope"
+	}],
+	"role-templates": [{
+		"name": "live5UserRole",
+		"scope-references": ["$XSAPPNAME.USER"]
+	}]
+}
