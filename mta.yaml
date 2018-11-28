@@ -2,3 +2,8 @@ ID: live5
 _schema-version: '2.0'
 description: Live5 Demo showing Twitter sentiment analysis
 version: 0.0.1
+
+modules:
+ - name: uidev
+   type: html5
+   path: uidev
