@@ -8,33 +8,36 @@ modules:
     path: uidev
     requires:
       - name: live5uaa
-
-  - name: db
-    type: hdb
-    path: db
-    requires:
-     - name: hdi_db
-
-
+      - name: node_api
+        group: destinations
+        properties:
+          name: node_be
+          url: '~{service_url}'
+          forwardAuthToken: true
   - name: node
     type: nodejs
     path: node
     provides:
-     - name: node_api
-       properties:
-          url: ${default-url}
-
+      - name: node_api
+        properties:
+          service_url: '${default-url}'
+    requires:
+      - name: live5uaa
+      - name: hdi_db
+  - name: db
+    type: hdb
+    path: db
+    requires:
+      - name: hdi_db
 resources:
   - name: live5uaa
     type: com.sap.xs.uaa
     parameters:
       path: ./xs-security.json
-
   - name: hdi_db
     parameters:
-       config:
-          schema: LIVE5
+      config:
+        schema: LIVE5
     properties:
-       hdi-container-name: ${service-name}
+      hdi-container-name: '${service-name}'
     type: com.sap.xs.hdi-container
-
