@@ -1,0 +1,9 @@
+PROCEDURE "live5.db::reset"( )
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   AS
+BEGIN
+	delete from "live5.db::tables.Tweets";
+	delete from "$TA_live5.db::TATweets";
+	insert into "live5.db::tables.Tracking" ("created","name") values (now(),'reset');
+END
