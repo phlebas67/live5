@@ -1,0 +1,15 @@
+PROCEDURE "live5.db::cluster"( )
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   --DEFAULT SCHEMA <default_schema_name>
+   AS
+BEGIN
+	delete from "live5.db::PAL.Results";
+	delete from "live5.db::PAL.Centers";
+	p1 = select * from "live5.db::views.Users";
+	p2 = select * from "live5.db::PAL.Params";
+	call "live5.db::PALkmeans" (:p1, :p2, :p3, :p4);                              
+	insert into "live5.db::PAL.Results" select * from :p3;
+	insert into "live5.db::PAL.Centers" select * from :p4;
+	insert into "live5.db::tables.Tracking" ("created","name") values (now(),'cluster');
+END
