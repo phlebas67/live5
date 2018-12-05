@@ -1,0 +1,5 @@
+FULLTEXT INDEX "live5.db::tables.text_test_fti"
+ON "live5.db::tables.Tweets" ("text")
+CONFIGURATION 'live5.db::Brexit_config'
+LANGUAGE DETECTION ('EN')
+TEXT ANALYSIS ON
