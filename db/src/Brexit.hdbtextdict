@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<dictionary xmlns="http://www.sap.com/ta/4.0">
-	<entity_category name="PERSON">
-		<entity_name standard_form = "Theresa May">
-			<variant name = "May" />
-		</entity_name>
-	</entity_category>
-</dictionary>
