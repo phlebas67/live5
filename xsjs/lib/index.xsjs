@@ -18,7 +18,7 @@ function cluster() {
 	$.response.setBody("Clustering finished");
 }
 
-function neighborhood() {
+function neighbourhood() {
 	var conn;
 	conn = $.hdb.getConnection();
 	var query =
@@ -43,7 +43,7 @@ switch (cmd) {
 		cluster();
 		break;
 	case "neighborhood":
-		neighborhood();
+		neighbourhood();
 		break;
 	default:
 		$.response.setBody("Invalid Command: " + cmd);
