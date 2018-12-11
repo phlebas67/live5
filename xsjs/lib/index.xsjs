@@ -23,8 +23,8 @@ function neighbourhood() {
 	conn = $.hdb.getConnection();
 	var query =
 		'SELECT * FROM "live5.db::neighbourhood" (placeholder."$$IP_USER$$"=>?,placeholder."$$IP_DIRECTION$$"=>?,placeholder."$$IP_MIN$$"=>?,placeholder."$$IP_MAX$$"=>?)';
-	var user = '["' + $.request.parameters.get("user") + '"]';
-	var direction = '"' + $.request.parameters.get("direction") + '"';
+	var user = $.request.parameters.get("user");
+	var direction = $.request.parameters.get("direction");
 	var min = $.request.parameters.get("min");
 	var max = $.request.parameters.get("max");
 	// validate input parameters here!!!
@@ -42,7 +42,7 @@ switch (cmd) {
 	case "cluster":
 		cluster();
 		break;
-	case "neighborhood":
+	case "neighbourhood":
 		neighbourhood();
 		break;
 	default:
