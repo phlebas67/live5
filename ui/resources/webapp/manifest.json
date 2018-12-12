@@ -102,24 +102,26 @@
 				},
 				"async": true
 			},
-			"routes": [
-				{
-					"pattern": "",
-					"name": "master",
-					"target": [
-						"object",
-						"master"
-					]
-				},
-				{
-					"pattern": "Clusters/{objectId}",
-					"name": "object",
-					"target": [
-						"master",
-						"object"
-					]
-				}
-			],
+			"routes": [{
+				"pattern": "",
+				"name": "master",
+				"target": [
+					"object",
+					"master"
+				]
+			}, {
+				"pattern": "Clusters/{objectId}",
+				"name": "object",
+				"target": [
+					"master",
+					"object"
+				]
+			}, {
+				"pattern": "Clusters/{objectId}/User/{user}",
+				"name": "user",
+				"target": "user"
+			}],
+
 			"targets": {
 				"master": {
 					"viewName": "Master",
@@ -139,6 +141,11 @@
 				"detailNoObjectsAvailable": {
 					"viewName": "DetailNoObjectsAvailable",
 					"viewId": "detailNoObjectsAvailable"
+				},
+				"user": {
+					"viewName": "User",
+					"viewId": "user",
+					"viewLevel": 3
 				},
 				"notFound": {
 					"viewName": "NotFound",
