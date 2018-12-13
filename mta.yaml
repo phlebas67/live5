@@ -3,23 +3,7 @@ _schema-version: '2.0'
 description: Live5 Demo showing Twitter sentiment analysis
 version: 0.0.1
 modules:
-  - name: uidev
-    type: html5
-    path: uidev
-    requires:
-      - name: live5uaa
-      - name: node_api
-        group: destinations
-        properties:
-          name: node_be
-          url: '~{service_url}'
-          forwardAuthToken: true
-      - name: xsjs_api
-        group: destinations
-        properties:
-          name: xsjs_be
-          url: '~{service_url}'
-          forwardAuthToken: true
+  
   - name: node
     type: nodejs
     path: node
